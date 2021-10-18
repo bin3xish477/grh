@@ -40,6 +40,7 @@ func getHTTPHeaders(url string) {
 	resp, err := client.Get(url)
 	if err != nil {
 		fmt.Printf("unable to make GET request to %s", url)
+		os.Exit(1)
 	}
 
 	headers := parseHeaders(resp.Header)
