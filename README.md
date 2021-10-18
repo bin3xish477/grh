@@ -13,4 +13,5 @@ grh (Get Response Headers) is a tool whose sole purpose is to print out HTTP res
 
 ### Usage
 > cat urls | grh
+
 > grh --url 'http://youtube.com'
