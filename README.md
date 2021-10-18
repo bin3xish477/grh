@@ -4,7 +4,7 @@ grh (Get Response Headers) is a tool whose sole purpose is to print out HTTP res
 ![image](https://user-images.githubusercontent.com/44281620/137790729-67d14e22-4aa1-4c65-aee3-7980e207fb16.png)
 
 ### Installation
-1. Download a binary for your target operating system from the releases page
+1. Download a binary for your target operating system from the [releases](https://github.com/binexisHATT/grh/releases) page
 2. From source (You must have Go installed)
   - git clone https://github.com/binexisHATT/grh
   - cd grh
