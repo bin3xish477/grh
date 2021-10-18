@@ -1,32 +1,32 @@
 windows:
-	GOOS=windows GOARCH=amd64 go build -o ./fatt.exe ./cmd/fatt/*
+	GOOS=windows GOARCH=amd64 go build -o ./grh.exe grh.go
 windows-release:
-	GOOS=windows GOARCH=amd64 go build -o ./fatt.exe ./cmd/fatt/*
-	tar -czvf fatt-windows-amd64.tar.gz ./fatt.exe ./README.md
-	sha256sum fatt-windows-amd64.tar.gz > fatt-windows-amd64.tar.gz.sha256sum
-	GOOS=windows GOARCH=386 go build -o ./fatt.exe ./cmd/fatt/*
-	tar -czvf fatt-windows-386.tar.gz ./fatt.exe ./README.md
-	sha256sum fatt-windows-386.tar.gz > fatt-windows-386.tar.gz.sha256sum
+	GOOS=windows GOARCH=amd64 go build -o ./grh.exe grh.go
+	tar -czvf grh-windows-amd64.tar.gz ./grh.exe ./README.md
+	sha256sum grh-windows-amd64.tar.gz > grh-windows-amd64.tar.gz.sha256sum
+	GOOS=windows GOARCH=386 go build -o ./grh.exe grh.go
+	tar -czvf grh-windows-386.tar.gz ./grh.exe ./README.md
+	sha256sum grh-windows-386.tar.gz > grh-windows-386.tar.gz.sha256sum
 
 darwin:
-	GOOS=darwin GOARCH=amd64 go build -o ./fatt ./cmd/fatt/*
+	GOOS=darwin GOARCH=amd64 go build -o ./grh grh.go
 darwin-release:
-	GOOS=darwin GOARCH=amd64 go build -o ./fatt ./cmd/fatt/*
-	tar -czvf fatt-darwin-amd64.tar.gz ./fatt ./README.md
-	sha256sum fatt-darwin-amd64.tar.gz > fatt-darwin-amd64.tar.gz.sha256sum
+	GOOS=darwin GOARCH=amd64 go build -o ./grh grh.go
+	tar -czvf grh-darwin-amd64.tar.gz ./grh ./README.md
+	sha256sum grh-darwin-amd64.tar.gz > grh-darwin-amd64.tar.gz.sha256sum
 
 linux:
-	GOOS=linux GOARCH=amd64 go build -o ./fatt ./cmd/fatt/*
+	GOOS=linux GOARCH=amd64 go build -o ./grh grh.go
 linux-release:
-	GOOS=windows GOARCH=amd64 go build -o ./fatt ./cmd/fatt/*
-	tar -czvf fatt-linux-amd64.tar.gz ./fatt ./README.md
-	sha256sum fatt-linux-amd64.tar.gz > fatt-linux-amd64.tar.gz.sha256sum
-	GOOS=windows GOARCH=386 go build -o ./fatt ./cmd/fatt/*
-	tar -czvf fatt-linux-386.tar.gz ./fatt ./README.md
-	sha256sum fatt-linux-386.tar.gz > fatt-linux-386.tar.gz.sha256sum
+	GOOS=windows GOARCH=amd64 go build -o ./grh grh.go
+	tar -czvf grh-linux-amd64.tar.gz ./grh ./README.md
+	sha256sum grh-linux-amd64.tar.gz > grh-linux-amd64.tar.gz.sha256sum
+	GOOS=windows GOARCH=386 go build -o ./grh grh.go
+	tar -czvf grh-linux-386.tar.gz ./grh ./README.md
+	sha256sum grh-linux-386.tar.gz > grh-linux-386.tar.gz.sha256sum
 
 releases: linux-release windows-release darwin-release
 
 clean:
-	@if [ -f fatt ]; then rm fatt; fi
-	@if [ -f fatt.exe ]; then rm fatt.exe; fi
+	@if [ -f grh ]; then rm grh; fi
+	@if [ -f grh.exe ]; then rm grh.exe; fi
