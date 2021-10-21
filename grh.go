@@ -39,7 +39,7 @@ func getHTTPHeaders(url string) {
 	}
 	resp, err := client.Get(url)
 	if err != nil {
-		fmt.Printf("unable to make GET request to %s", url)
+		fmt.Printf("unable to make GET request to %s\n", url)
 		os.Exit(1)
 	}
 
