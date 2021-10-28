@@ -60,17 +60,30 @@ func printHeaders(headers map[string]string) {
 	}
 }
 
+func validHTTPURLCheck(u string) (isValidURL bool) {
+	if strings.HasPrefix(u, "http://") || strings.HasPrefix(u, "https://") {
+		isValidURL = true
+	}
+	return isValidURL
+}
+
 func main() {
 	arg.MustParse(&args)
 
 	if args.Url != "" {
 		url := args.Url
+		if !validHTTPURLCheck(url) {
+			url = fmt.Sprintf("http://%s", url)
+		}
 		fmt.Printf("%sGET%s: %s%s%s\n", green, end, yellow, url, end)
 		getHTTPHeaders(url)
 	} else if stat, _ := os.Stdin.Stat(); stat.Mode()&os.ModeCharDevice == 0 {
 		scanner := bufio.NewScanner(os.Stdin)
 		for scanner.Scan() {
 			url := scanner.Text()
+			if !validHTTPURLCheck(url) {
+				url = fmt.Sprintf("http://%s", url)
+			}
 			fmt.Printf("%sGET%s: %s%s%s\n", green, end, yellow, url, end)
 			getHTTPHeaders(url)
 		}
